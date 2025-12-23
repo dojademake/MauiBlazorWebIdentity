@@ -1,35 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/launchsettings.json",
-    "iisSettings": {
-      "windowsAuthentication": false,
-      "anonymousAuthentication": true,
-      "iisExpress": {
-        "applicationUrl": "http://localhost:45108",
-        "sslPort": 44363
-      }
-    },
     "profiles": {
-      "https": {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": true,
-        "applicationUrl": "https://localhost:7157;http://localhost:5101",
-        "environmentVariables": {
-          "ASPNETCORE_ENVIRONMENT": "Development"
-        }
-      },
       "http": {
         "commandName": "Project",
         "dotnetRunMessages": true,
         "launchBrowser": true,
-        "applicationUrl": "http://localhost:5101",
+        "applicationUrl": "http://mauiblazorweb_web.dev.localhost:5267",
         "environmentVariables": {
           "ASPNETCORE_ENVIRONMENT": "Development"
         }
       },
-      "IIS Express": {
-        "commandName": "IISExpress",
+      "https": {
+        "commandName": "Project",
+        "dotnetRunMessages": true,
         "launchBrowser": true,
+        "applicationUrl": "https://mauiblazorweb_web.dev.localhost:7229;http://mauiblazorweb_web.dev.localhost:5267",
         "environmentVariables": {
           "ASPNETCORE_ENVIRONMENT": "Development"
         }
