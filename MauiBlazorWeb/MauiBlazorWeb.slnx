@@ -3,4 +3,5 @@
   <Project Path="MauiBlazorWeb.ServiceDefaults/MauiBlazorWeb.ServiceDefaults.csproj" />
   <Project Path="MauiBlazorWeb.Shared/MauiBlazorWeb.Shared.csproj" />
   <Project Path="MauiBlazorWeb.Web/MauiBlazorWeb.Web.csproj" />
+  <Project Path="MauiBlazorWeb/MauiBlazorWeb.csproj" />
 </Solution>
