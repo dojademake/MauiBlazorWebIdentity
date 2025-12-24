@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
@@ -17,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MauiBlazorWeb.ServiceDefaults\MauiBlazorWeb.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\MauiBlazorWeb.Shared\MauiBlazorWeb.Shared.csproj" />
   </ItemGroup>
 
 </Project>

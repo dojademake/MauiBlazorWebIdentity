@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="MauiBlazorWeb.AppHost/MauiBlazorWeb.AppHost.csproj" />
   <Project Path="MauiBlazorWeb.ServiceDefaults/MauiBlazorWeb.ServiceDefaults.csproj" />
+  <Project Path="MauiBlazorWeb.Shared/MauiBlazorWeb.Shared.csproj" />
   <Project Path="MauiBlazorWeb.Web/MauiBlazorWeb.Web.csproj" />
 </Solution>
