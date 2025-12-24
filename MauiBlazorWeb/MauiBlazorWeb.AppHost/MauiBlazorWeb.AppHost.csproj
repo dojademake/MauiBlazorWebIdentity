@@ -11,12 +11,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.0" />
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MauiBlazorWeb.Web\MauiBlazorWeb.Web.csproj" />
-    <ProjectReference Include="..\MauiBlazorWeb\MauiBlazorWeb.csproj" />
   </ItemGroup>
 
 </Project>
