@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\Layout\**" />
     <Compile Remove="wwwroot\**" />
+    <Content Remove="Components\Layout\**" />
     <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="Components\Layout\**" />
     <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="Components\Layout\**" />
     <None Remove="wwwroot\**" />
   </ItemGroup>
 

@@ -1,9 +1,10 @@
-﻿@using MauiBlazorWeb.Web.Components.Account.Pages
+﻿@using MauiBlazorWeb.Shared.Layout
+@using MauiBlazorWeb.Web.Components.Account.Pages
 @using Microsoft.AspNetCore.Components.Authorization
 <Router AppAssembly="typeof(Program).Assembly"
         AdditionalAssemblies="new[] { typeof(Shared._Imports).Assembly }">
     <Found Context="routeData">
-        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
             <Authorizing>
                 Authorizing...
             </Authorizing>
