@@ -6,6 +6,7 @@ using MauiBlazorWeb.Web.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,11 @@ builder.Services.AddIdentityCore<ApplicationUser>(options =>
 
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSender>();
 
+// For more information on OpenAPI support in ASP.NET Core,
+// see OpenAPI support in ASP.NET Core API apps at
+// https://learn.microsoft.com/aspnet/core/fundamentals/openapi/overview
+builder.Services.AddOpenApi();
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -60,6 +66,7 @@ if (app.Environment.IsDevelopment())
         dbContext.Database.Migrate();
     }
     app.UseMigrationsEndPoint();
+    app.MapOpenApi();
 }
 else
 {
