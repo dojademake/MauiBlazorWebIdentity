@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MauiBlazorWeb.Shared
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <ResourcePreloader />
-    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
-    <link rel="stylesheet" href="@Assets["app.css"]" />
-    <link rel="stylesheet" href="@Assets["MauiBlazorWeb.Web.styles.css"]" />
+    <link rel="stylesheet" href="_content/MauiBlazorWeb.Shared/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="_content/MauiBlazorWeb.Shared/app.css" />
+    <link rel="stylesheet" href="MauiBlazorWeb.Web.styles.css" />
     <ImportMap />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="_content/MauiBlazorWeb.Shared/favicon.png" />
     <HeadOutlet @rendermode="PageRenderMode" />
 </head>
 
