@@ -17,6 +17,7 @@ builder.Services.AddRazorComponents()
 
 // Add device-specific services used by the MauiBlazorWeb.Shared project
 builder.Services.AddSingleton<IFormFactor, FormFactor>();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
 
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<IdentityRedirectManager>();
