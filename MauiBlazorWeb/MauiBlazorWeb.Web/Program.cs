@@ -51,6 +51,7 @@ builder.Services.AddSingleton<IEmailSender<ApplicationUser>, IdentityNoOpEmailSe
 // see OpenAPI support in ASP.NET Core API apps at
 // https://learn.microsoft.com/aspnet/core/fundamentals/openapi/overview
 builder.Services.AddOpenApi();
+builder.Services.AddOpenApiDocument(config => config.Title = "MauiBlazorWeb API");
 
 var app = builder.Build();
 
@@ -66,7 +67,9 @@ if (app.Environment.IsDevelopment())
         dbContext.Database.Migrate();
     }
     app.UseMigrationsEndPoint();
-    app.MapOpenApi();
+
+    app.UseOpenApi();
+    app.UseSwaggerUi();
 }
 else
 {
