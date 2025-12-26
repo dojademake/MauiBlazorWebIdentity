@@ -6,7 +6,7 @@ namespace MauiBlazorWeb.Services
     internal class HttpClientHelper
     {
         //TODO: Place this in AppSettings or Client config file
-        private static string _baseUrl = "https://localhost:7157/";
+        private static string _baseUrl = "https://mauiblazorweb_web.dev.localhost:7229/";
         public static string BaseUrl
         {
             get

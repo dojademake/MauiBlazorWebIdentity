@@ -16,12 +16,16 @@ For more information, see [.NET MAUI Blazor Hybrid and Web App with ASP.NET Core
 
 1. Clone this repository or download a ZIP archive of the repository. For more information, see [How to download a sample](https://learn.microsoft.com/aspnet/core/introduction-to-aspnet-core#how-to-download-a-sample).
 1. Make sure you have [.NET 10 (included with Visual Studio 2026) and the MAUI workload installed](https://learn.microsoft.com/dotnet/maui/get-started/installation).
-1. Open the solution in Visual Studio 2022 or VS Code with the .NET MAUI extension installed.
+1. Open the solution in Visual Studio 2026 (cannot use previous versions) or VS Code with the .NET MAUI extension installed.
 1. Set the `MauiBlazorWeb` MAUI project as the startup project. In Visual Studio, right-click the project and select **Set as Startup Project**.
 1. Start the `MauiBlazorWeb.Web` project without debugging. In Visual Studio, right-click on the project and select **Debug** > **Start without Debugging**.
 1. Inspect the Identity endpoints by navigating to `https://mauiblazorweb_web.dev.localhost:7229/swagger` in a browser.
 1. Navigate to `https://mauiblazorweb_web.dev.localhost:7229/Account/Register` to register a user in the Blazor Web App. Immediately after the user is registered, use the **Click here to confirm your account** link in the UI to confirm the user's email address because a real email sender isn't registered for account confirmation.
 1. Start (`F5`) the `MauiBlazorWeb` MAUI project. You can set the debug target to either **Windows** or an Android emulator.
+* Significant requirements and compilaion delays (especially the first run) are expected if Android (default) is selected.
+* The "Verification of Android environment is running. Please try again in a moment." message is typical with more detail in the .NET MAUI output pane.
+* An ASP.NET certificate will be created at first execution.
+* LocalDB database with 9 ASPNET... (including UserPasskeys) named tables will be created in SSMS.
 1. Notice you can only see the `Home` and `Login` pages.
 1. Log in with the user that you registered.
 1. Notice you can now see the shared `Counter` and `Weather` pages.
