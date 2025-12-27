@@ -89,7 +89,16 @@ app.MapRazorComponents<App>()
     .AddAdditionalAssemblies(
         typeof(MauiBlazorWeb.Shared._Imports).Assembly);
 
+// Needed for external clients to log in
+app.MapGroup("/identity").MapIdentityApi<ApplicationUser>();
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+
+//Add the weather API endpoint and require authorization
+app.MapGet("/api/weather", async (IWeatherService weatherService) =>
+{
+    var forecasts = await weatherService.GetWeatherForecastsAsync();
+    return Results.Ok(forecasts);
+}).RequireAuthorization();
 
 app.Run();

@@ -22,10 +22,10 @@ For more information, see [.NET MAUI Blazor Hybrid and Web App with ASP.NET Core
 1. Inspect the Identity endpoints by navigating to `https://mauiblazorweb_web.dev.localhost:7229/swagger` in a browser.
 1. Navigate to `https://mauiblazorweb_web.dev.localhost:7229/Account/Register` to register a user in the Blazor Web App. Immediately after the user is registered, use the **Click here to confirm your account** link in the UI to confirm the user's email address because a real email sender isn't registered for account confirmation.
 1. Start (`F5`) the `MauiBlazorWeb` MAUI project. You can set the debug target to either **Windows** or an Android emulator.
-* Significant requirements and compilaion delays (especially the first run) are expected if Android (default) is selected.
-* The "Verification of Android environment is running. Please try again in a moment." message is typical with more detail in the .NET MAUI output pane.
-* An ASP.NET certificate will be created at first execution.
-* LocalDB database with 9 ASPNET... (including UserPasskeys) named tables will be created in SSMS.
+	* Significant requirements and compilation delays (especially the first run) are expected if Android (default) is selected.
+	* The "Verification of Android environment is running. Please try again in a moment." message is typical with more detail in the .NET MAUI output pane.
+	* An ASP.NET certificate will be created at first execution.
+	* LocalDB database with 9 ASPNET... named tables (including UserPasskeys) will be created in [SSMS](https://learn.microsoft.com/en-us/ssms/install/install).
 1. Notice you can only see the `Home` and `Login` pages.
 1. Log in with the user that you registered.
 1. Notice you can now see the shared `Counter` and `Weather` pages.
