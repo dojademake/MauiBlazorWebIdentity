@@ -19,8 +19,8 @@ For more information, see [.NET MAUI Blazor Hybrid and Web App with ASP.NET Core
 1. Open the solution in Visual Studio 2026 (cannot use previous versions) or VS Code with the .NET MAUI extension installed.
 1. Set the `MauiBlazorWeb` MAUI project as the startup project. In Visual Studio, right-click the project and select **Set as Startup Project**.
 1. Start the `MauiBlazorWeb.Web` project without debugging. In Visual Studio, right-click on the project and select **Debug** > **Start without Debugging**.
-1. Inspect the Identity endpoints by navigating to `https://mauiblazorweb_web.dev.localhost:7229/swagger` in a browser.
-1. Navigate to `https://mauiblazorweb_web.dev.localhost:7229/Account/Register` to register a user in the Blazor Web App. Immediately after the user is registered, use the **Click here to confirm your account** link in the UI to confirm the user's email address because a real email sender isn't registered for account confirmation.
+1. Inspect the Identity endpoints by navigating to `https://localhost:7157/swagger` in a browser.
+1. Navigate to `https://localhost:7157/Account/Register` to register a user in the Blazor Web App. Immediately after the user is registered, use the **Click here to confirm your account** link in the UI to confirm the user's email address because a real email sender isn't registered for account confirmation.
 1. Start (`F5`) the `MauiBlazorWeb` MAUI project. You can set the debug target to either **Windows** or an Android emulator.
 	* Significant requirements and compilation delays (especially the first run) are expected if Android (default) is selected.
 	* The "Verification of Android environment is running. Please try again in a moment." message is typical with more detail in the .NET MAUI output pane.
@@ -30,4 +30,4 @@ For more information, see [.NET MAUI Blazor Hybrid and Web App with ASP.NET Core
 1. Log in with the user that you registered.
 1. Notice you can now see the shared `Counter` and `Weather` pages.
 1. Log out and notice you can only see the `Home` and `Login` pages again.
-1. Navigate to `https://mauiblazorweb_web.dev.localhost:7229/` and the web app behaves the same.
+1. Navigate to `https://localhost:7157/` and the web app behaves the same.

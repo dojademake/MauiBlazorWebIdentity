@@ -6,7 +6,7 @@ namespace MauiBlazorWeb.Services
     internal class HttpClientHelper
     {
         //TODO: Place this in AppSettings or Client config file
-        private static string _baseUrl = "https://mauiblazorweb_web.dev.localhost:7229/";
+        private static string _baseUrl = "https://localhost:7157/";
         public static string BaseUrl
         {
             get
@@ -22,7 +22,7 @@ namespace MauiBlazorWeb.Services
                 return _baseUrl;
             }
         }
-        public static string LoginUrl => $"{BaseUrl}identity/login";
+        public static string LoginUrl => $"{BaseUrl}identity/login?useCookies=true&useSessionCookies=true";
         public static string RefreshUrl => $"{BaseUrl}identity/refresh";
         public static string WeatherUrl => $"{BaseUrl}api/weather";
 
