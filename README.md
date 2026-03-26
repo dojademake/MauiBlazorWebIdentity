@@ -1,5 +1,64 @@
 # .NET MAUI Blazor Hybrid and Web App with ASP.NET Core Identity sample app (`MauiBlazorWeb`)
 
+---
+
+## Aspire Bug Reproduction: Period in MAUI Project Name
+
+This repository also contains two minimal .NET Aspire solutions that demonstrate
+a bug triggered when a .NET MAUI Blazor Hybrid project has a **period (`.`)** in
+its project (`.csproj`) name, such as `NoGood.Maui`.
+
+See [microsoft/aspire issues](https://github.com/microsoft/aspire/issues) for the
+upstream tracking issue.
+
+### Solutions
+
+| Directory | MAUI project | Result |
+|-----------|-------------|--------|
+| [`AspireFine/`](AspireFine/) | `AllGood` (no period) | ✅ Compiles and runs correctly |
+| [`AspireBug/`](AspireBug/)   | `NoGood.Maui` (period) | ❌ Fails at build or runtime |
+
+### The Bug
+
+When .NET Aspire's **AppHost source generator** (`Aspire.Hosting.AppHost`) processes
+a `ProjectReference` to a MAUI project whose assembly name contains a period
+(e.g. `NoGood.Maui`), two independent code paths produce **inconsistent names**:
+
+| Code path | Input | Output | Separator |
+|-----------|-------|--------|-----------|
+| Source generator (C# identifier) | `NoGood.Maui` | `Projects.NoGood_Maui` | underscore `_` |
+| Resource name (runtime) | `NoGood.Maui` | `"nogood-maui"` | hyphen `-` |
+
+In affected versions of Aspire, the source generator fails to emit the
+`Projects.NoGood_Maui` metadata class for MAUI projects (`Microsoft.NET.Sdk.Razor`
++ `<UseMaui>true</UseMaui>`), producing a **CS0234** build error in the AppHost:
+
+```
+error CS0234: The type or namespace name 'NoGood_Maui' does not exist
+              in the namespace 'Projects'
+```
+
+The `AspireFine` solution with `AllGood` (no period) does **not** exhibit this
+problem because neither the type name nor the resource name requires any
+normalisation of a separator character.
+
+### Unit Tests
+
+The [`Tests/`](Tests/) directory contains an xUnit test project that:
+
+- Proves the naming inconsistency between the source-generator path and the
+  runtime resource-naming path.
+- Validates the solution structure (both solutions' project files exist and
+  reference the correct projects).
+- Runs without any Aspire SDK installed — suitable for any CI environment.
+
+```bash
+# Run from the repo root
+dotnet test Tests/AspireBugDemo.Tests/AspireBugDemo.Tests.csproj
+```
+
+---
+
 This sample demonstrates .NET MAUI Blazor Hybrid and Web App that shares common UI and *authentication*. The sample uses ASP.NET Core Identity local accounts, but you can use this pattern for any authentication provider from a MAUI Blazor Hybrid client.
 
 The sample:	

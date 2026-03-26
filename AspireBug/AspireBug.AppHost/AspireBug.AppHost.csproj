@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>aspire-bug-apphost</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
+  </ItemGroup>
+
+  <!--
+    BUG REPRODUCTION:
+    The project "NoGood.Maui" (NoGood.Maui.csproj) has a PERIOD in its name.
+
+    When Aspire's source generator processes this ProjectReference it:
+      1. Attempts to generate "Projects.NoGood_Maui" as a C# class (replacing '.' with '_').
+      2. Derives the default resource name as "nogood-maui" (replacing '.' with '-', lowercasing).
+
+    The generated metadata class may not be produced correctly because the source
+    generator fails to handle the period in the assembly name, resulting in either:
+      - A build error: "The type or namespace 'NoGood_Maui' does not exist in the
+        namespace 'Projects'" (CS0234)
+      - A runtime error: resource "nogood-maui" cannot be resolved because the
+        underlying project metadata is missing or malformed.
+
+    Expected (bug-free) behavior: The source generator should safely replace
+    periods with underscores and produce a usable "Projects.NoGood_Maui" type,
+    just as it does for periods in web/API project names.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\NoGood.Maui\NoGood.Maui.csproj" />
+  </ItemGroup>
+
+</Project>
