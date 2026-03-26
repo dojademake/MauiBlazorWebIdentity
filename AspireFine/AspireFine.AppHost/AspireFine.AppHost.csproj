@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>aspire-fine-apphost</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="9.2.0" />
+  </ItemGroup>
+
+  <!--
+    The AllGood project (no period in name) is referenced here.
+    Aspire source-generates "Projects.AllGood" from this reference.
+    builder.AddProject<Projects.AllGood>("allgood") works without issue.
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\AllGood\AllGood.csproj" />
+  </ItemGroup>
+
+</Project>
